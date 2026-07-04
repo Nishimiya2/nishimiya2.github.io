@@ -4,8 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="About, MidragonTec">
-    <meta name="description" content="MidragonTec">
+    <meta name="keywords" content="嵌入式多并发, MidragonTec">
+    <meta name="description" content="嵌入式C并发编程深度解析与安全防御白皮书
+文档版本：V1.0适用对象：嵌入式软件工程师、架构师、项目技术评审组核心议题：从硬件底层剖析中断&amp;#x2F;多核并发Bug的物理根源，建立系统性防御思维  
+
+
+目录
+引言：嵌入式并发安全的特殊性 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +22,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>About | MidragonTec</title>
+    <title>嵌入式多并发 | MidragonTec</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -334,12 +339,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">about</h1>
+                    <h1 class="description center-align post-title">嵌入式多并发</h1>
                 </div>
             </div>
         </div>
@@ -361,12 +366,45 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">
+                                <span class="chip bg-color">嵌入式</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                                <span class="chip bg-color">并发编程</span>
+                            </a>
+                        
+                            <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                                <span class="chip bg-color">C语言</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8E%9F%E5%AD%90%E6%80%A7/">
+                                <span class="chip bg-color">原子性</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%86%85%E5%AD%98%E5%B1%8F%E9%9A%9C/">
+                                <span class="chip bg-color">内存屏障</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" class="post-category">
+                                技术分享
+                            </a>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/" class="post-category">
+                                嵌入式开发
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -375,7 +413,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2024-09-29
+                    2026-07-04
                 </div>
                 
 
@@ -396,7 +434,175 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="嵌入式C并发编程深度解析与安全防御白皮书"><a href="#嵌入式C并发编程深度解析与安全防御白皮书" class="headerlink" title="嵌入式C并发编程深度解析与安全防御白皮书"></a>嵌入式C并发编程深度解析与安全防御白皮书</h1><blockquote>
+<p><strong>文档版本</strong>：V1.0<br><strong>适用对象</strong>：嵌入式软件工程师、架构师、项目技术评审组<br><strong>核心议题</strong>：从硬件底层剖析中断&#x2F;多核并发Bug的物理根源，建立系统性防御思维  </p>
+</blockquote>
+<hr>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li><a href="#1-%E5%BC%95%E8%A8%80%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B9%B6%E5%8F%91%E5%AE%89%E5%85%A8%E7%9A%84%E7%89%B9%E6%AE%8A%E6%80%A7">引言：嵌入式并发安全的特殊性</a>  </li>
+<li><a href="#2-%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B9%B6%E5%8F%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%89%E5%A4%A7%E7%A1%AC%E4%BB%B6%E6%A0%B9%E6%BA%90">嵌入式并发问题的三大硬件根源</a>  </li>
+<li><a href="#3-%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E5%B9%B6%E5%8F%91%E8%AF%AD%E4%B9%89%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%A7%86%E8%A7%92">三大核心并发语义深度剖析（嵌入式视角）</a>  <ul>
+<li>3.1 <a href="#31-%E5%8E%9F%E5%AD%90%E6%80%A7atomicity">原子性（Atomicity）</a>  </li>
+<li>3.2 <a href="#32-%E5%8F%AF%E8%A7%81%E6%80%A7visibility">可见性（Visibility）</a>  </li>
+<li>3.3 <a href="#33-%E6%9C%89%E5%BA%8F%E6%80%A7ordering">有序性（Ordering）</a></li>
+</ul>
+</li>
+<li><a href="#4-%E5%B5%8C%E5%85%A5%E5%BC%8Fc%E5%9B%9B%E5%A4%A7%E5%85%B8%E5%9E%8B%E7%81%BE%E9%9A%BE%E5%9C%BA%E6%99%AF%E5%85%A8%E8%BF%98%E5%8E%9F">嵌入式C四大典型灾难场景全还原</a>  </li>
+<li><a href="#5-%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%98%B2%E5%BE%A1%E4%BD%93%E7%B3%BB%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E7%9F%A9%E9%98%B5">嵌入式防御体系与解决方案矩阵</a>  </li>
+<li><a href="#6-%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B9%B6%E5%8F%91%E8%B0%83%E8%AF%95%E5%88%A9%E5%99%A8%E6%B1%87%E6%8A%A5%E7%BA%A7%E5%B7%A5%E5%85%B7%E7%AE%B1">嵌入式并发调试利器（汇报级工具箱）</a>  </li>
+<li><a href="#7-%E6%B1%87%E6%8A%A5%E6%80%BB%E7%BB%93%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AE%89%E5%85%A8%E7%BC%96%E7%A8%8B%E9%93%81%E5%BE%8B">汇报总结：嵌入式安全编程铁律</a></li>
+</ol>
+<hr>
+<h2 id="1-引言：嵌入式并发安全的特殊性"><a href="#1-引言：嵌入式并发安全的特殊性" class="headerlink" title="1. 引言：嵌入式并发安全的特殊性"></a>1. 引言：嵌入式并发安全的特殊性</h2><p>在服务器端Java或C++开发中，并发问题通常由操作系统线程调度引起，有完善的内存模型（如JMM）兜底。但在<strong>嵌入式C语言</strong>裸机或RTOS环境中，我们直面的是<strong>物理寄存器、CPU流水线、多级缓存（Cache）和硬件中断</strong>。</p>
+<p><strong>嵌入式并发Bug的杀伤力极大</strong>：</p>
+<ul>
+<li>导致 <strong>HardFault硬错误</strong>（程序直接跑飞）。  </li>
+<li>引发 <strong>外设初始化失败</strong>（设备间歇性失灵）。  </li>
+<li>造成 <strong>内存撕裂</strong>（DMA传输半成品数据）。  </li>
+<li>严重的 <strong>优先级反转</strong> 可能导致系统任务全面饿死（参考1997年火星探路者事故）。</li>
+</ul>
+<p>本白皮书从 <strong>硬件根源</strong> → <strong>三大核心语义</strong> → <strong>典型灾难案例</strong> → <strong>防御矩阵</strong> → <strong>调试工具</strong> 五个维度，构建完整的嵌入式并发知识体系。</p>
+<hr>
+<h2 id="2-嵌入式并发问题的三大硬件根源"><a href="#2-嵌入式并发问题的三大硬件根源" class="headerlink" title="2. 嵌入式并发问题的三大硬件根源"></a>2. 嵌入式并发问题的三大硬件根源</h2><p>理解编程语义之前，必须理解CPU硬件为了“快”而做出的三种妥协，这是所有并发Bug的物理源头。</p>
+<h3 id="2-1-根源一：中断-任务抢占（时间维度的撕裂）"><a href="#2-1-根源一：中断-任务抢占（时间维度的撕裂）" class="headerlink" title="2.1 根源一：中断&#x2F;任务抢占（时间维度的撕裂）"></a>2.1 根源一：中断&#x2F;任务抢占（时间维度的撕裂）</h3><ul>
+<li><p><strong>现象</strong><br>CPU采用时间片轮转（RTOS）或中断优先级抢占。一个32位甚至64位的全局变量修改，在汇编层面对应多条指令（如 <code>LDR</code> 加载，<code>ADD</code> 加1，<code>STR</code> 回写）。  </p>
+</li>
+<li><p><strong>后果</strong><br>当主循环执行到一半时，高优先级中断触发，修改了同一块内存区域。当中断返回时，主循环继续基于“半成品”数据运算，产生不可预知的撕裂值。  </p>
+</li>
+<li><p><strong>嵌入式特质</strong><br>单核CPU同样存在此问题，因为中断是异步的。</p>
+</li>
+</ul>
+<h3 id="2-2-根源二：编译器优化与寄存器缓存（编译器层面的近视）"><a href="#2-2-根源二：编译器优化与寄存器缓存（编译器层面的近视）" class="headerlink" title="2.2 根源二：编译器优化与寄存器缓存（编译器层面的近视）"></a>2.2 根源二：编译器优化与寄存器缓存（编译器层面的近视）</h3><ul>
+<li><p><strong>现象</strong><br>开启 <code>-O2</code> &#x2F; <code>-O3</code> 优化后，编译器为了效率，将频繁访问的全局变量加载到CPU的通用寄存器（R0-R12）中。  </p>
+</li>
+<li><p><strong>后果</strong><br>此后CPU不再去物理内存地址取值，而是直接使用寄存器中的备份。当中断服务函数（ISR）修改了内存中的变量，主循环因持有寄存器旧值而永远感知不到变化，导致死循环或逻辑错误。  </p>
+</li>
+<li><p><strong>嵌入式特质</strong><br>这与Java的JIT编译不同，C语言中完全由 <code>volatile</code> 关键字控制。</p>
+</li>
+</ul>
+<h3 id="2-3-根源三：CPU流水线与写缓冲（执行顺序的重排）"><a href="#2-3-根源三：CPU流水线与写缓冲（执行顺序的重排）" class="headerlink" title="2.3 根源三：CPU流水线与写缓冲（执行顺序的重排）"></a>2.3 根源三：CPU流水线与写缓冲（执行顺序的重排）</h3><ul>
+<li><p><strong>现象</strong><br>现代高性能Cortex-M7&#x2F;M33及多核A系列芯片，为了填充分支预测的空闲周期，支持 <strong>指令重排序</strong>；同时为了减少总线等待，引入了 <strong>Store Buffer（写缓冲）</strong>。  </p>
+</li>
+<li><p><strong>后果</strong><br>代码明明先写了寄存器A，后写了寄存器B，物理上却可能先执行了B的写操作。如果A是开启外设时钟，B是配置外设模式，就会导致外设时钟未稳时寄存器配置无效。  </p>
+</li>
+<li><p><strong>嵌入式特质</strong><br>需要内存屏障指令（<code>DMB</code> &#x2F; <code>DSB</code>）强制串行化。</p>
+</li>
+</ul>
+<hr>
+<h2 id="3-三大核心并发语义深度剖析（嵌入式视角）"><a href="#3-三大核心并发语义深度剖析（嵌入式视角）" class="headerlink" title="3. 三大核心并发语义深度剖析（嵌入式视角）"></a>3. 三大核心并发语义深度剖析（嵌入式视角）</h2><p>本章详细拆解 <strong>原子性</strong>、<strong>可见性</strong>、<strong>有序性</strong>，它们是衡量代码安全性的标尺。</p>
+<h3 id="3-1-原子性（Atomicity）：操作不可分割"><a href="#3-1-原子性（Atomicity）：操作不可分割" class="headerlink" title="3.1 原子性（Atomicity）：操作不可分割"></a>3.1 原子性（Atomicity）：操作不可分割</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>一组操作要么全部执行完毕且不被任何外部事件（中断或其它核心）打断，要么完全不执行。不存在“执行到一半”的中间状态。</p>
+<h4 id="嵌入式破坏场景"><a href="#嵌入式破坏场景" class="headerlink" title="嵌入式破坏场景"></a>嵌入式破坏场景</h4><ol>
+<li><p><strong>非对齐访问</strong><br>ARM Cortex-M 要求4字节对齐的 <code>uint32_t</code> 写入。如果变量未对齐，一次赋值会被拆分成多次字节写入，中断恰好发生在两次字节写入之间，读到的值是混合的垃圾数据。  </p>
+</li>
+<li><p><strong>64位变量操作</strong><br>在32位Cortex-M3&#x2F;M4上，操作 <code>uint64_t</code> 需要2条 <code>LDRD</code> &#x2F; <code>STRD</code> 指令。中断打断第一条指令后，高32位和低32位分别来自新旧两个不同的时间点。  </p>
+</li>
+<li><p><strong>读-改-写（Read-Modify-Write）</strong><br>如 <code>flag |= BIT_MASK</code>，本质是读内存、或运算、写内存三步。中断在写回前修改了 <code>flag</code> 的其他位，主循环写回时会 <strong>覆盖</strong> 中断的修改，造成位标志丢失。</p>
+</li>
+</ol>
+<h4 id="C语言语义保证"><a href="#C语言语义保证" class="headerlink" title="C语言语义保证"></a>C语言语义保证</h4><table>
+<thead>
+<tr>
+<th align="left">场景</th>
+<th align="left">保证手段</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单核裸机</td>
+<td align="left"><code>__disable_irq()</code> &#x2F; <code>__enable_irq()</code></td>
+<td align="left">包裹临界区，禁止中断抢占</td>
+</tr>
+<tr>
+<td align="left">多核&#x2F;带Cache</td>
+<td align="left"><code>ldrex</code> &#x2F; <code>strex</code> 独占指令</td>
+<td align="left">实现无锁原子操作，或使用芯片硬件信号量</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="3-2-可见性（Visibility）：修改立即生效"><a href="#3-2-可见性（Visibility）：修改立即生效" class="headerlink" title="3.2 可见性（Visibility）：修改立即生效"></a>3.2 可见性（Visibility）：修改立即生效</h3><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p>一个执行单元（任务&#x2F;中断&#x2F;核心）对共享变量做出的修改，必须能够被其他执行单元 <strong>立即</strong> 观察到。</p>
+<h4 id="嵌入式破坏场景-1"><a href="#嵌入式破坏场景-1" class="headerlink" title="嵌入式破坏场景"></a>嵌入式破坏场景</h4><ol>
+<li><p><strong>编译器的寄存器提升（Register Promotion）</strong><br>局部优化导致变量常驻寄存器，ISR修改的内存值被忽略（经典死循环）。  </p>
+</li>
+<li><p><strong>多核Cache不一致性</strong><br>双核（如ESP32或Cortex-A9）各有独立的L1 Data Cache。Core0修改了变量（仅写入L1 Cache，尚未写回主存SDRAM），Core1读取该变量时，因Cache Miss而从主存拿旧值，拿到的是脏数据。</p>
+</li>
+</ol>
+<h4 id="C语言语义保证-1"><a href="#C语言语义保证-1" class="headerlink" title="C语言语义保证"></a>C语言语义保证</h4><table>
+<thead>
+<tr>
+<th align="left">场景</th>
+<th align="left">保证手段</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单核</td>
+<td align="left"><code>volatile</code> 关键字</td>
+<td align="left">强制编译器放弃寄存器优化，每次从绝对物理地址读取</td>
+</tr>
+<tr>
+<td align="left">多核</td>
+<td align="left"><code>volatile</code> + Cache同步</td>
+<td align="left">修改后调用 <code>SCU_CleanInvalidateDCache</code>，或用 Non-Cacheable 属性定义共享内存</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="3-3-有序性（Ordering）：遵循程序逻辑顺序"><a href="#3-3-有序性（Ordering）：遵循程序逻辑顺序" class="headerlink" title="3.3 有序性（Ordering）：遵循程序逻辑顺序"></a>3.3 有序性（Ordering）：遵循程序逻辑顺序</h3><h4 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h4><p>程序最终执行的物理顺序，应当与源代码的编写逻辑顺序保持一致性（在依赖关系成立的场景下）。</p>
+<h4 id="嵌入式破坏场景-2"><a href="#嵌入式破坏场景-2" class="headerlink" title="嵌入式破坏场景"></a>嵌入式破坏场景</h4><ol>
+<li><p><strong>外设初始化失效</strong>（经典M7坑）<br>先开时钟，再改模式。CPU重排后先改模式，因时钟未开导致写入无效。  </p>
+</li>
+<li><p><strong>DMA缓冲区就绪标志提前设置</strong><br>CPU在数据尚未完全从Cache刷新到主存前，就置位了DMA启动标志。DMA从主存搬运旧数据，导致传输内容错误。</p>
+</li>
+</ol>
+<h4 id="C语言语义保证-2"><a href="#C语言语义保证-2" class="headerlink" title="C语言语义保证"></a>C语言语义保证</h4><table>
+<thead>
+<tr>
+<th align="left">屏障类型</th>
+<th align="left">指令</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">编译器屏障</td>
+<td align="left"><code>asm volatile(&quot;&quot; ::: &quot;memory&quot;)</code></td>
+<td align="left">阻止编译器优化重排，不阻止CPU硬件重排</td>
+</tr>
+<tr>
+<td align="left">数据内存屏障</td>
+<td align="left"><code>__DMB()</code></td>
+<td align="left">屏障前的内存访问在屏障后的内存访问之前完成（多核共享）</td>
+</tr>
+<tr>
+<td align="left">数据同步屏障</td>
+<td align="left"><code>__DSB()</code></td>
+<td align="left">等待所有流水线内存访问完成（外设寄存器配置）</td>
+</tr>
+<tr>
+<td align="left">指令同步屏障</td>
+<td align="left"><code>__ISB()</code></td>
+<td align="left">冲刷指令流水线（跳转或页表修改）</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="4-嵌入式C四大典型灾难场景全还原"><a href="#4-嵌入式C四大典型灾难场景全还原" class="headerlink" title="4. 嵌入式C四大典型灾难场景全还原"></a>4. 嵌入式C四大典型灾难场景全还原</h2><h3 id="4-1-原子性灾难：64位时间戳撕裂"><a href="#4-1-原子性灾难：64位时间戳撕裂" class="headerlink" title="4.1 原子性灾难：64位时间戳撕裂"></a>4.1 原子性灾难：64位时间戳撕裂</h3><h4 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h4><p>高精度任务获取系统运行时间。</p>
+<pre><code class="c">uint64_t volatile g_sys_tick = 0; // 假设未使用关中断保护
+
+// 1ms 滴答中断
+void SysTick_ISR(void) &#123;
+    g_sys_tick++; 
+    // 汇编: 1. LDRD R0,R1,[addr]  (加载高32位到R1,低32位到R0)
+    //       2. ADDS R0,#1
+    //       3. ADCS R1,#0
+    //       4. STRD R0,R1,[addr]  (写回)
+&#125;
+
+// 应用任务
+void task(void) &#123;
+    uint64_t start = g_sys_tick; 
+    // 如果读取时恰好停在 [加载完高32位] [加载低32位] 之间，且中断更新了数值，
+    // start 的高32位是新值，低32位是旧值，计算出的时间完全是错误的。
+&#125;
+</code></pre>
+
                 
             </div>
             <hr/>
@@ -422,7 +628,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://nishimiya2.github.io/about/index.html">http://nishimiya2.github.io/about/index.html</a>
+                    <a href="http://nishimiya2.github.io/2026/07/04/qian-ru-shi-duo-bing-fa/">http://nishimiya2.github.io/2026/07/04/qian-ru-shi-duo-bing-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -459,7 +665,27 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">
+                                    <span class="chip bg-color">嵌入式</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                                    <span class="chip bg-color">并发编程</span>
+                                </a>
+                            
+                                <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                                    <span class="chip bg-color">C语言</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8E%9F%E5%AD%90%E6%80%A7/">
+                                    <span class="chip bg-color">原子性</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%86%85%E5%AD%98%E5%B1%8F%E9%9A%9C/">
+                                    <span class="chip bg-color">内存屏障</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -541,13 +767,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;Current
             </div>
             <div class="card">
-                <a href="/about/index.html">
+                <a href="/2026/07/04/qian-ru-shi-duo-bing-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="about">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="嵌入式多并发">
                         
-                        <span class="card-title">about</span>
+                        <span class="card-title">嵌入式多并发</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -558,17 +784,49 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-07-04
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            DragonMountain
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" class="post-category">
+                                    技术分享
+                                </a>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/" class="post-category">
+                                    嵌入式开发
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">
+                        <span class="chip bg-color">嵌入式</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                        <span class="chip bg-color">并发编程</span>
+                    </a>
+                    
+                    <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                        <span class="chip bg-color">C语言</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8E%9F%E5%AD%90%E6%80%A7/">
+                        <span class="chip bg-color">原子性</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%86%85%E5%AD%98%E5%B1%8F%E9%9A%9C/">
+                        <span class="chip bg-color">内存屏障</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -576,16 +834,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/about/index.html">
+                <a href="/2024/07/10/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="about">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">about</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -596,7 +854,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-10
                             </span>
                         <span class="publish-author">
                             
@@ -606,7 +864,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
